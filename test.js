@@ -47,13 +47,13 @@ function division (...numbers) {
 // };
 
 function operate (a, b, c) {
-    if (b == "plus") {
+    if (b == "+") {
         return addition(a, c);
-    } else if (b == "minus") {
+    } else if (b == "-") {
         return subtraction(a, c);
-    } else if (b == "times") {
+    } else if (b == "*") {
         return multiplication(a, c);
-    } else if (b == "divided by") {
+    } else if (b == "/") {
         return division(a, c);
     } else return "Please enter a valid operator";
 };
