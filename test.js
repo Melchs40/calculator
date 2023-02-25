@@ -13,3 +13,11 @@ function subtraction (...numbers) {
     };
     return total;
 };
+
+function mulitplication (...numbers) {
+    let total = 1;
+    for(let i = 0; i < numbers.length; i++) {
+        total *= numbers[i];
+    };
+    return total;
+};
