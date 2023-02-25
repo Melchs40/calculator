@@ -22,7 +22,7 @@ function subtraction (...numbers) {
 //     return a - b;
 // };
 
-function mulitplication (...numbers) {
+function multiplication (...numbers) {
     let total = 1;
     for(let i = 0; i < numbers.length; i++) {
         total *= numbers[i];
@@ -45,3 +45,15 @@ function division (...numbers) {
 // function divide (a, b) {
 //     return a / b;
 // };
+
+function operate (a, b, c) {
+    if (b == "plus") {
+        return addition(a, c);
+    } else if (b == "minus") {
+        return subtraction(a, c);
+    } else if (b == "times") {
+        return multiplication(a, c);
+    } else if (b == "divided by") {
+        return division(a, c);
+    } else return "Please enter a valid operator";
+};
