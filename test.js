@@ -6,6 +6,10 @@ function addition (...numbers) {
     return total;
 };
 
+// function add (a, b) {
+//     return a + b;
+// };
+
 function subtraction (...numbers) {
     let total = numbers[0];
     for(let i = 1; i < numbers.length; i++) {
@@ -13,6 +17,10 @@ function subtraction (...numbers) {
     };
     return total;
 };
+
+// function subtract (a, b) {
+//     return a - b;
+// };
 
 function mulitplication (...numbers) {
     let total = 1;
@@ -22,6 +30,10 @@ function mulitplication (...numbers) {
     return total;
 };
 
+// function multiply (a, b) {
+//     return a * b;
+// };
+
 function division (...numbers) {
     let total = numbers[0];
     for(let i = 1; i < numbers.length; i++) {
@@ -29,3 +41,7 @@ function division (...numbers) {
     };
     return total;
 };
+
+// function divide (a, b) {
+//     return a / b;
+// };
