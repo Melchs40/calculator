@@ -1,15 +1,18 @@
-let numbers = "";
-
-let operator = "";
-
 //returns the text content of button pressed
+
+const operation = [];
+
 const buttons = document.querySelectorAll(".buttons");
 buttons.forEach(button => {
    button.addEventListener('click', returnButton)
 })
 function returnButton(event) {
-    return(event.target.textContent)
+    operation.push(event.target.textContent);
 }
+
+
+
+//various operator functions
 
 function addition (...numbers) {
     let total = 0;
@@ -59,14 +62,14 @@ function division (...numbers) {
 //     return a / b;
 // };
 
-function operate (a, b, c) {
-    if (b == "+") {
-        return addition(a, c);
-    } else if (b == "-") {
-        return subtraction(a, c);
-    } else if (b == "*") {
-        return multiplication(a, c);
-    } else if (b == "/") {
-        return division(a, c);
+function operate (obj) {
+    if (obj[1] == "+") {
+        return addition(Number(obj[0]), Number(obj[2]));
+    } else if (obj[1] == "-") {
+        return subtraction(Number(obj[0]), Number(obj[2]));
+    } else if (obj[1] == "*") {
+        return multiplication(Number(obj[0]), Number(obj[2]));
+    } else if (obj[1] == "/") {
+        return division(Number(obj[0]), Number(obj[2]));
     } else return "Please enter a valid operator";
 };
