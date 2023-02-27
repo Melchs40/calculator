@@ -1,3 +1,16 @@
+let numbers = "";
+
+let operator = "";
+
+//returns the text content of button pressed
+const buttons = document.querySelectorAll(".buttons");
+buttons.forEach(button => {
+   button.addEventListener('click', returnButton)
+})
+function returnButton(event) {
+    return(event.target.textContent)
+}
+
 function addition (...numbers) {
     let total = 0;
     for(let i = 0; i < numbers.length; i++) {
