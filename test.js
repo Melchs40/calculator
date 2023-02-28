@@ -7,7 +7,9 @@ buttons.forEach(button => {
    button.addEventListener('click', returnButton)
 })
 function returnButton(event) {
-    operation.push(event.target.textContent);
+    if(event.target.textContent.includes("+") || event.target.textContent.includes("-") || event.target.textContent.includes("*") || event.target.textContent.includes("/")) {
+        operation.push(event.target.textContent);
+    } else operation.push(Number(event.target.textContent));
 }
 
 
