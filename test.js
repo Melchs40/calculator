@@ -63,12 +63,14 @@ function operate (obj) {
         let start = obj[0];
         for(let n = 0; n < obj.length; n++) {
             if (obj[n] == "+") {
-               start = add(obj[n-1], obj[n+1]);
+               start = add(start, obj[n+1]);
             } else if (obj[n] == "-") {
-                start = subtract(obj[n-1], obj[n+1]);
+                start = subtract(start, obj[n+1]);
             } else if (obj[n] == "*") {
-                start = multiply(obj[n-1], obj[n+1]);
-            } else start = divide(obj[n-1], obj[n+1]);
+                start = multiply(start, obj[n+1]);
+            } else if (obj[n] == "/") {
+                start = divide(start, obj[n+1]);
+            } else continue;
         }; return start;
     } else return "please start with a number";
 }
