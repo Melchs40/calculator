@@ -4,6 +4,7 @@ let display = document.getElementById("display-box");
 let equation = [];
 let start = ""
 
+//returns numbers into the display and into the equation variable
 const numberButtons = document.querySelectorAll(".number-button");
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", displayButton)
@@ -17,6 +18,8 @@ function displayButton(event) {
     console.log(display.innerHTML);
 }
 
+
+//returns operators into the display and into the equation variable
 const operatorButtons = document.querySelectorAll(".operator-button");
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", createVariable)
@@ -32,6 +35,11 @@ function createVariable(event) {
         console.log(equation);
     } else console.log("hi");
 }
+
+//return the completed operation
+
+
+
 
 
 
@@ -74,3 +82,13 @@ function operate (obj) {
         }; return start;
     } else return "please start with a number";
 }
+
+
+
+const enterButton = document.getElementById("enter");
+enterButton.addEventListener("click", runOperation); 
+
+function runOperation() {
+    equation.push(Number(display.innerHTML));
+    display.innerHTML = operate(equation);
+};
