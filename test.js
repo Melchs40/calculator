@@ -27,7 +27,7 @@ operatorButtons.forEach(operatorButton => {
 
 function createVariable(event) {
     if (event.target.textContent == "+" || event.target.textContent == "-" || event.target.textContent == "*" || event.target.textContent == "/") {
-        if (display.innerHTML == '\n        ') {
+        if (display.innerHTML == "\n        ") {
             // do nothing
         } else {
             if (display.innerHTML == "+" || display.innerHTML == "-" || display.innerHTML == "*" || display.innerHTML == "/") {
@@ -48,13 +48,32 @@ function createVariable(event) {
 const enterButton = document.getElementById("enter");
 enterButton.addEventListener("click", runOperation); 
 
-function runOperation() {
-    equation.push(Number(display.innerHTML));
-    display.innerHTML = operate(equation);
-    equation = [];
+function runOperation(event) {
+    if (display.innerHTML == "0" && equation[equation.length-1] == "/") {
+        display.innerHTML = "&#128293 &#128293 &#128293 &#128293 &#128293";
+        setTimeout(clearOperation, 1000);
+    } else if (display.innerHTML == "+" || display.innerHTML == "-" || display.innerHTML == "*" || display.innerHTML == "/") {
+        //do nothing
+    } else {
+        equation.push(Number(display.innerHTML));
+        display.innerHTML = operate(equation);
+        equation = [];
+    }
 };
 
+function fireEmoji() {
+    display.innerHTML = "\u1F525 \u1F525 \u1F525 \u1F525 \u1F525 \u1F525 \u1F525";
+}
 
+//clear the equation array
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", clearOperation);
+
+function clearOperation() {
+    equation = [];
+    display.innerHTML = "\n        ";
+}
 
 
 
