@@ -61,10 +61,6 @@ function runOperation(event) {
     }
 };
 
-function fireEmoji() {
-    display.innerHTML = "\u1F525 \u1F525 \u1F525 \u1F525 \u1F525 \u1F525 \u1F525";
-}
-
 //clear the equation array
 
 const clearButton = document.getElementById("clear");
