@@ -27,19 +27,32 @@ operatorButtons.forEach(operatorButton => {
 
 function createVariable(event) {
     if (event.target.textContent == "+" || event.target.textContent == "-" || event.target.textContent == "*" || event.target.textContent == "/") {
-        equation.push(Number(display.innerHTML));
-        equation.push(event.target.textContent);
-        display.innerHTML = event.target.textContent;
+        if (display.innerHTML == '\n        ') {
+            // do nothing
+        } else {
+            if (display.innerHTML == "+" || display.innerHTML == "-" || display.innerHTML == "*" || display.innerHTML == "/") {
+                equation.splice(equation.length-1, 1);
+            } else
+                equation.push(Number(display.innerHTML));
+                equation.push(event.target.textContent);
+                display.innerHTML = event.target.textContent;
         
-        console.log(display.innerHTML);
-        console.log(equation);
+                console.log(display.innerHTML);
+                console.log(equation);
+        }
     } else console.log("hi");
 }
 
 //return the completed operation
 
+const enterButton = document.getElementById("enter");
+enterButton.addEventListener("click", runOperation); 
 
-
+function runOperation() {
+    equation.push(Number(display.innerHTML));
+    display.innerHTML = operate(equation);
+    equation = [];
+};
 
 
 
@@ -82,13 +95,3 @@ function operate (obj) {
         }; return start;
     } else return "please start with a number";
 }
-
-
-
-const enterButton = document.getElementById("enter");
-enterButton.addEventListener("click", runOperation); 
-
-function runOperation() {
-    equation.push(Number(display.innerHTML));
-    display.innerHTML = operate(equation);
-};
