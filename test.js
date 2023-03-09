@@ -27,8 +27,10 @@ operatorButtons.forEach(operatorButton => {
 
 function createVariable(event) {
     if (event.target.textContent == "+" || event.target.textContent == "-" || event.target.textContent == "*" || event.target.textContent == "/") {
-        if (display.innerHTML == "\n        ") {
+        if (display.innerHTML == "\n        " && equation == []) {
             // do nothing
+        } else if ((display.innerHTML == "\n        ") && isNaN(equation[equation.length-1]) == false) {
+            equation.push(event.target.textContent);
         } else {
             if (display.innerHTML == "+" || display.innerHTML == "-" || display.innerHTML == "*" || display.innerHTML == "/") {
                 equation.splice(equation.length-1, 1);
@@ -69,6 +71,18 @@ clearButton.addEventListener("click", clearOperation);
 function clearOperation() {
     equation = [];
     display.innerHTML = "\n        ";
+}
+
+// remove a single line in the equation
+
+const deleteButton = document.getElementById("delete");
+deleteButton.addEventListener("click", deleteFunction);
+
+function deleteFunction() {
+    if ((display.innerHTML == "+" && equation[equation.length-1] == "+") || (display.innerHTML == "-" && equation[equation.length-1] == "-") || (display.innerHTML == "*" && equation[equation.length-1] == "*") || (display.innerHTML == "/" && equation[equation.length-1] == "/")) {
+        display.innerHTML = "\n        ";
+        equation.pop();
+    } else display.innerHTML = "\n        ";
 }
 
 
