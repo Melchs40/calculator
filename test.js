@@ -5,6 +5,7 @@ let equation = [];
 let start = ""
 
 //returns numbers into the display and into the equation variable
+
 const numberButtons = document.querySelectorAll(".number-button");
 numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", displayButton)
@@ -18,8 +19,18 @@ function displayButton(event) {
     console.log(display.innerHTML);
 }
 
+// returns decimal point and disables button until operator is used
+
+const decimalButton = document.getElementById("decimal");
+decimalButton.addEventListener("click", disableButton);
+
+function disableButton() {
+    decimalButton.disabled = true;
+}
+
 
 //returns operators into the display and into the equation variable
+
 const operatorButtons = document.querySelectorAll(".operator-button");
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", createVariable)
@@ -27,17 +38,19 @@ operatorButtons.forEach(operatorButton => {
 
 function createVariable(event) {
     if (event.target.textContent == "+" || event.target.textContent == "-" || event.target.textContent == "*" || event.target.textContent == "/") {
-        if (display.innerHTML == "\n        " && equation == []) {
-            // do nothing
-        } else if ((display.innerHTML == "\n        ") && isNaN(equation[equation.length-1]) == false) {
+        if ((display.innerHTML == "\n        ") && isNaN(equation[equation.length-1]) == false) {
             equation.push(event.target.textContent);
+            display.innerHTML = event.target.textContent;
+            decimalButton.disabled = false;
         } else {
             if (display.innerHTML == "+" || display.innerHTML == "-" || display.innerHTML == "*" || display.innerHTML == "/") {
                 equation.splice(equation.length-1, 1);
+                decimalButton.disabled = false;
             } else
                 equation.push(Number(display.innerHTML));
                 equation.push(event.target.textContent);
                 display.innerHTML = event.target.textContent;
+                decimalButton.disabled = false;
         
                 console.log(display.innerHTML);
                 console.log(equation);
@@ -58,8 +71,9 @@ function runOperation(event) {
         //do nothing
     } else {
         equation.push(Number(display.innerHTML));
-        display.innerHTML = operate(equation);
+        display.innerHTML = +operate(equation).toFixed(3);
         equation = [];
+        decimalButton.disabled = false;
     }
 };
 
@@ -71,6 +85,7 @@ clearButton.addEventListener("click", clearOperation);
 function clearOperation() {
     equation = [];
     display.innerHTML = "\n        ";
+    decimalButton.disabled = false;
 }
 
 // remove a single line in the equation
@@ -83,6 +98,7 @@ function deleteFunction() {
         display.innerHTML = "\n        ";
         equation.pop();
     } else display.innerHTML = "\n        ";
+    decimalButton.disabled = false;
 }
 
 
