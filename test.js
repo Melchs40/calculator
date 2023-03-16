@@ -28,7 +28,6 @@ function disableButton() {
     decimalButton.disabled = true;
 }
 
-
 //returns operators into the display and into the equation variable
 
 const operatorButtons = document.querySelectorAll(".operator-button");
@@ -101,19 +100,15 @@ function deleteFunction() {
     decimalButton.disabled = false;
 }
 
-
-
 //various operator functions
 
 function add (a, b) {
     return a + b;
 };
 
-
 function subtract (a, b) {
     return a - b;
 };
-
 
 function multiply (a, b) {
     return a * b;
