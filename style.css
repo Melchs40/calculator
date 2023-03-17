@@ -10,16 +10,18 @@
     flex: 1 1 1;
 }
 .words-container {
+    font-family: 'Tilt Neon', cursive;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .title {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-basis: 100%;
 }
 .info {
     display: flex;
@@ -33,28 +35,39 @@
     flex-wrap: wrap;
     flex-basis: 0;
     justify-content: center;
-    width: 400px;
-    border: 7px solid;
-    border-color: black;
-    border-radius: 7px;
+    width: 206px;
+    border: 5px solid;
+    border-color: rgb(82, 86, 111);
+    border-radius: 5px;
+    margin-bottom: 30px;
 
 }
 
-.display {
+.display-container {
     display: flex;
     justify-content: right;
-    align-items: center;
-    padding-right: 50px;
-    height: 50px;
-    width: 156px;
-    background-color: rgb(205, 239, 131)
+    padding-top: 20px;
+    padding-right: 25px;
+    background-color: rgb(183, 221, 232);
+    height: 45px;
+    width: 216px;
+}
+
+.display {
+    font-family: 'Stick No Bills', sans-serif;;
+    display: flex;
+    justify-content: right;
+    max-width: 161px;
+    font-size: 20px;
+    overflow: hidden;
+    background-color: rgb(183, 221, 232);
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
     border-top: 3px solid;
-    border-color: black;
+    border-color: rgb(121, 126, 160);
     max-width: 200px;
     min-width: 200px;
     background-color: rgb(186, 186, 186);
@@ -65,6 +78,7 @@
     flex-grow: 0;
     height: 50px;
     width: 50px;
+    border-color: rgb(121, 126, 160);
     border-radius: 5px;
     /* margin: 0 10px;
     padding: 10px; */
@@ -89,3 +103,8 @@
     border-radius: 5px;
 }
 
+.footer {
+    font-family: 'Tilt Neon', cursive;
+    display: flex;
+    justify-content: center;
+}
