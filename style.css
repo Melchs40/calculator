@@ -1,5 +1,5 @@
 .body {
-    background-color: rgb(163, 163, 171);
+    background-image: url("images/4853433.jpg");
 }
 
 .page-container {
@@ -7,7 +7,13 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex: 0 0 1;
+    flex: 1 1 1;
+}
+.words-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .title {
@@ -17,9 +23,9 @@
 }
 .info {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    flex-basis: 1;
 }
 
 .calc-container {
